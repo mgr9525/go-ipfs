@@ -59,14 +59,8 @@ func (r *IpnsResolver) resolveOnceAsync(ctx context.Context, name string, option
 	}
 
 	name = strings.TrimPrefix(name, "/ipns/")
+
 	pid, err := peer.Decode(name)
-	if err != nil {
-		log.Debugf("RoutingResolver: could not convert public key hash %s to peer ID: %s\n", name, err)
-		out <- onceResult{err: err}
-		close(out)
-		cancel()
-		return out
-	}
 
 	// Name should be the hash of a public key retrievable from ipfs.
 	// We retrieve the public key here to make certain that it's in the peer
