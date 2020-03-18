@@ -126,4 +126,6 @@ require (
 	gotest.tools/gotestsum v0.3.4
 )
 
+replace github.com/ipfs/go-bitswap v0.0.7 => github.com/mgr9525/go-bitswap v0.0.8-0.20200318051520-b76e94ac394d
+
 go 1.12
